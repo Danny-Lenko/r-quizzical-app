@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Preface from "./components/Preface";
+import Action from "./components/Action";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [hasBegun, setHasBegun] = React.useState(false)
+    const [questions, setQuestions] = React.useState([])
+
+    React.useEffect(() => {
+        return setQuestions(() => {
+
+        })
+    }, [])
+
+    function beginQuiz() {
+        setHasBegun(prevState => !prevState)
+    }
+
+
+
+    return (
+        <div className="App">
+            { hasBegun
+                ? <Action  />
+                : <Preface beginQuiz={ ()=>beginQuiz() } />
+            }
+        </div>
+    )
 }
 
 export default App;
