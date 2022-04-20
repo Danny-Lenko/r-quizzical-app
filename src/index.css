@@ -164,5 +164,61 @@ h4 {
     bottom: 0;
 }
 
+/* ----------------------------------------- Action component */
 
+.Action {
+    position: relative;
+    background-color: #F5F7FB;
+    height: 100%;
+    padding: 40px 75px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+.action__question {
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    color: #293264;
+    font-size: 1rem;
+    line-height: 1.15;
+    margin-bottom: 10px;
+}
+
+.action__options {
+    display: flex;
+}
+
+.action__answer {
+    min-width: 65px;
+    outline: 1px solid #2E86C1;
+    line-height: 1;
+    border-radius: 7px;
+    font-size: calc(10.24rem / 16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4px;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+.action__answer:hover {
+    background-color: #D6EAF8;
+    /*outline: none;*/
+}
+.action__answer:not(:last-child) {
+    margin-right: 12px;
+}
+
+hr {
+    margin-top: 10px;
+    background-color: #DBDEF0;
+    height: .79px;
+    border: 0;
+    outline: 0;
+}
+
+.action__btn {
+
+}

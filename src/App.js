@@ -7,11 +7,13 @@ function App() {
     const [hasBegun, setHasBegun] = React.useState(false)
     const [questions, setQuestions] = React.useState([])
 
-    React.useEffect(() => {
-        return setQuestions(() => {
-
-        })
+    React.useEffect(function() {
+        fetch('https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple')
+            .then(res => res.json())
+            .then(data => setQuestions(data.results))
     }, [])
+
+    console.log(questions)
 
     function beginQuiz() {
         setHasBegun(prevState => !prevState)
@@ -22,7 +24,7 @@ function App() {
     return (
         <div className="App">
             { hasBegun
-                ? <Action  />
+                ? <Action questions={questions} />
                 : <Preface beginQuiz={ ()=>beginQuiz() } />
             }
         </div>
