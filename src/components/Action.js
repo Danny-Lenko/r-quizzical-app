@@ -45,6 +45,12 @@ export default function Action(props) {
             {actionSection}
 
             <button className="action__btn">Check answers</button>
+            <button
+                className="action__btn"
+                onClick={props.restartGame}
+            >
+                Play again
+            </button>
 
             <svg className="preface__blob1"
                 width="162" height="187" viewBox="0 0 162 187" fill="none" xmlns="http://www.w3.org/2000/svg">
