@@ -144,7 +144,7 @@ h4 {
     cursor: pointer;
 }
 
-.preface__btn:focus
+.preface__btn:focus,
 .action__btn:focus{
     outline: none;
 }
@@ -172,17 +172,32 @@ h4 {
     position: relative;
     background-color: #F5F7FB;
     height: 100%;
-    padding: 40px 75px 25px;
+    padding: 15px 75px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
-.action__section {
+.Action__btn {
+    font-size: calc(10.24rem / 16);
+    line-height: 1;
+    padding: 11px 0;
+    color: #F5F7FB;
+    background-color: #4D5B9E;
+    width: 120px;
+    border: 0;
+    align-self: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* ------------------------------------------- Question component*/
+
+.Question {
     z-index: 1000;
 }
 
-.action__question {
+.Question__ask {
     font-family: 'Karla', sans-serif;
     font-weight: 700;
     color: #293264;
@@ -191,11 +206,21 @@ h4 {
     margin-bottom: 10px;
 }
 
-.action__options {
+.Question__options {
     display: flex;
 }
 
-.action__answer {
+hr {
+    margin-top: 10px;
+    background-color: #DBDEF0;
+    height: 1px;
+    border: 0;
+    outline: 0;
+}
+
+/* --------------------------------------- Answer component*/
+
+.Answer {
     min-width: 65px;
     outline: 1px solid #2E86C1;
     line-height: 1;
@@ -209,30 +234,9 @@ h4 {
     margin-bottom: 0;
     cursor: pointer;
 }
-.action__answer:hover {
+.Answer:hover {
     background-color: #D6EAF8;
 }
-.action__answer:not(:last-child) {
+.Answer:not(:last-child) {
     margin-right: 12px;
-}
-
-hr {
-    margin-top: 10px;
-    background-color: #DBDEF0;
-    height: .79px;
-    border: 0;
-    outline: 0;
-}
-
-.action__btn {
-    font-size: calc(10.24rem / 16);
-    line-height: 1;
-    padding: 11px 0;
-    color: #F5F7FB;
-    background-color: #4D5B9E;
-    width: 120px;
-    border: 0;
-    align-self: center;
-    border-radius: 10px;
-    cursor: pointer;
 }

@@ -1,10 +1,10 @@
 import React from "react";
-import {decode} from 'html-entities'
-import {nanoid} from "nanoid"
+import Question from './Question'
+import {nanoid} from "nanoid";
 
 export default function Action(props) {
 
-    const actionSection = props.questions.map(item => {
+    const actionSections = props.questions.map(item => {
 
         const randomNum = Math.floor(Math.random() * 4)
         const correctAnswer = item.correct_answer
@@ -12,41 +12,23 @@ export default function Action(props) {
 
         allAnswers.splice(randomNum, 0, correctAnswer)
 
-        const options = allAnswers.map(item => (
-            <div
-                className="action__answer"
-                key={nanoid()}
-            >
-                {decode(item)}
-            </div>
-        ))
-
         return (
-
-            <section className="action__section" key={nanoid()}>
-
-                <h3 className="action__question">
-                    {decode(item.question)}
-                </h3>
-
-                <div className="action__options">
-                    {options}
-                </div>
-
-                <hr/>
-            </section>
-
+            <Question
+                answers={allAnswers}
+                question={item.question}
+                key={nanoid()}
+            />
         )
     })
 
     return (
         <div className="Action">
 
-            {actionSection}
+            {actionSections}
 
-            <button className="action__btn">Check answers</button>
+            <button className="Action__btn">Check answers</button>
             <button
-                className="action__btn"
+                className="Action__btn"
                 onClick={props.restartGame}
             >
                 Play again
