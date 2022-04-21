@@ -25,12 +25,23 @@ function App() {
         beginQuiz()
     }
 
+    // const allAnswers = questions.map(item => {
+    //
+    //     const randomNum = Math.floor(Math.random() * 4)
+    //     const correctAnswer = item.correct_answer
+    //     const answers = [...item.incorrect_answers]
+    //
+    //     return answers.splice(randomNum, 0, correctAnswer)
+    // })
+
+    // console.log(allAnswers)
 
     return (
         <div className="App">
             { hasBegun
                 ? <Action
                     questions={questions}
+                    // answers={allAnswers}
                     restartGame={ ()=>restartGame() }
                 />
                 : <Preface beginQuiz={ ()=>beginQuiz() } />

@@ -145,12 +145,12 @@ h4 {
 }
 
 .preface__btn:focus,
-.action__btn:focus{
+.Action__btn:focus{
     outline: none;
 }
 
 .preface__btn:active,
-.action__btn:active {
+.Action__btn:active {
     box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
 

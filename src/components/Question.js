@@ -5,8 +5,39 @@ import Answer from "./Answer";
 
 export default function Question(props) {
 
-    const allAnswers = props.answers.map(item => (
-        <Answer key={nanoid()} content={item} />
+    const [answers, setAnswers] = React.useState(generateAllAnswers())
+
+    function generateAnswer(i) {
+        return {
+            content: props.answers[i],
+            isHeld: false,
+            id: nanoid()
+        }
+    }
+
+    function generateAllAnswers() {
+        const arr = []
+        for (let i=0;i<4;i++) {
+            arr.push(generateAnswer(i))
+        }
+        return arr
+    }
+
+    function handleClicks(id) {
+        setAnswers(prevState => prevState.map(answer => (
+            answer.id === id ?
+                {...answer, isHeld: !answer.isHeld} :
+                {...answer, isHeld: false}
+        )))
+    }
+
+    const allAnswers = answers.map(item => (
+        <Answer
+            key={nanoid()}
+            content={item.content}
+            isHeld={item.isHeld}
+            handleClicks={()=>handleClicks(item.id)}
+        />
     ))
 
     return (

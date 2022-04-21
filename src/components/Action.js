@@ -4,6 +4,8 @@ import {nanoid} from "nanoid";
 
 export default function Action(props) {
 
+    const [check, setCheck] = React.useState(false)
+
     const actionSections = props.questions.map(item => {
 
         const randomNum = Math.floor(Math.random() * 4)
@@ -15,24 +17,40 @@ export default function Action(props) {
         return (
             <Question
                 answers={allAnswers}
+                // answers={props.answers}
                 question={item.question}
                 key={nanoid()}
             />
         )
     })
 
+    console.log(props.answers)
+
+    function checkAnswers() {
+        setCheck(prevState => !prevState)
+    }
+
     return (
         <div className="Action">
 
             {actionSections}
 
-            <button className="Action__btn">Check answers</button>
-            <button
-                className="Action__btn"
-                onClick={props.restartGame}
-            >
-                Play again
-            </button>
+            {check
+                ? <button
+                    className="Action__btn"
+                    onClick={props.restartGame}
+                >
+                    Play again
+                </button>
+
+                : <button
+                    className="Action__btn"
+                    onClick={()=>checkAnswers()}
+                >
+                    Check answers
+                </button>
+
+            }
 
             <svg className="preface__blob1"
                 width="162" height="187" viewBox="0 0 162 187" fill="none" xmlns="http://www.w3.org/2000/svg">
