@@ -6,25 +6,16 @@ export default function Action(props) {
 
     const [check, setCheck] = React.useState(false)
 
-    const actionSections = props.questions.map(item => {
-
-        const randomNum = Math.floor(Math.random() * 4)
-        const correctAnswer = item.correct_answer
-        const allAnswers = [...item.incorrect_answers]
-
-        allAnswers.splice(randomNum, 0, correctAnswer)
+    const actionSections = props.questions.map((item, index) => {
 
         return (
             <Question
-                answers={allAnswers}
-                // answers={props.answers}
+                answers={props.answers[index]}
                 question={item.question}
                 key={nanoid()}
             />
         )
     })
-
-    console.log(props.answers)
 
     function checkAnswers() {
         setCheck(prevState => !prevState)

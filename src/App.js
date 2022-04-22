@@ -14,7 +14,6 @@ function App() {
             .then(data => setQuestions(data.results))
     }, [restart])
 
-    console.log(questions)
 
     function beginQuiz() {
         setHasBegun(prevState => !prevState)
@@ -25,23 +24,25 @@ function App() {
         beginQuiz()
     }
 
-    // const allAnswers = questions.map(item => {
-    //
-    //     const randomNum = Math.floor(Math.random() * 4)
-    //     const correctAnswer = item.correct_answer
-    //     const answers = [...item.incorrect_answers]
-    //
-    //     return answers.splice(randomNum, 0, correctAnswer)
-    // })
+    console.log(questions)
 
-    // console.log(allAnswers)
+    const allAnswers = questions.map(item => {
+
+        const randomNum = Math.floor(Math.random() * 4)
+        const correctAnswer = item.correct_answer
+        const answers = [...item.incorrect_answers]
+
+        answers.splice(randomNum, 0, correctAnswer)
+        return answers
+    })
+
 
     return (
         <div className="App">
             { hasBegun
                 ? <Action
                     questions={questions}
-                    // answers={allAnswers}
+                    answers={allAnswers}
                     restartGame={ ()=>restartGame() }
                 />
                 : <Preface beginQuiz={ ()=>beginQuiz() } />
