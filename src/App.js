@@ -36,6 +36,9 @@ function App() {
         return answers
     })
 
+    console.log(allAnswers)
+
+
 
     return (
         <div className="App">
